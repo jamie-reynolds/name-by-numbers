@@ -23,10 +23,8 @@ const App = () => {
     } else {
       setNameLengthFact('');
     }
-  }, [name, nameLength]);
-
-  useEffect(() => {
-  }, [nameLengthFact]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nameLength]);
 
   const handleNameChange = (newName) => {
     console.log('handleNameChange');
