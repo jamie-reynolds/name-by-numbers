@@ -7,24 +7,17 @@ import NameFact from '../components/NameFact';
 
 const App = () => {
   const [name, setName] = useState('');
-  const [nameLength, setNameLength] = useState(0);
   const [nameLengthFact, setNameLengthFact] = useState('');
 
   useEffect(() => {
-    setNameLength(name.length);
-  }, [name]);
-
-  useEffect(() => {
-    console.log('nameLength', nameLength);
-    if(nameLength !== 0 && name !== '') {
-      fetch(`http://numbersapi.com/${nameLength}/trivia`)
+    if(name.length !== 0) {
+      fetch(`http://numbersapi.com/${name.length}/trivia`)
         .then(resp => resp.text())
         .then(text => setNameLengthFact(text));
     } else {
       setNameLengthFact('');
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [nameLength]);
+  }, [name]);
 
   const handleNameChange = (newName) => {
     console.log('handleNameChange');
@@ -36,7 +29,7 @@ const App = () => {
       <h1>Enter your name and we'll tell you something numberish about it!</h1>
       <NameEntry onNameChange={handleNameChange} />
       <h1>Hello, {name || 'Stranger'}!</h1>
-      <NameLength nameLength={nameLength} />
+      <NameLength nameLength={name.length} />
       <NameFact nameLengthFact={nameLengthFact} />
     </div>
   );
