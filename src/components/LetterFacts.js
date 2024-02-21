@@ -17,6 +17,8 @@ const LetterFacts = ({ letterFacts }) => {
                 );
             });
             setReturnVal(jsxElements);
+        } else {
+            setReturnVal(null);
         }
     }, [letterFacts]);
     return (
