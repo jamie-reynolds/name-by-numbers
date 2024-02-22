@@ -1,5 +1,3 @@
-// App.js
-
 import React, { useEffect, useState } from 'react';
 import NameEntry from '../components/NameEntry';
 import NameLength from '../components/NameLength';

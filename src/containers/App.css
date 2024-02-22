@@ -9,3 +9,12 @@ body {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
 }
+
+.fadein, .fadein > h1 {
+    animation: fadein 5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

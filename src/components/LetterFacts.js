@@ -1,4 +1,3 @@
-// LetterFacts.js
 import { useEffect, useState } from "react";
 import LetterFact from "./LetterFact";
 
@@ -26,7 +25,7 @@ const LetterFacts = ({ letterFacts }) => {
         }
     }, [letterFacts]);
     return (
-        <div>
+        <div className="fadein">
             {returnVal}
         </div>
     );
