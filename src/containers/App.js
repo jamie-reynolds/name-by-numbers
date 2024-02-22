@@ -19,7 +19,8 @@ const App = () => {
         const nameFact = await fetchNumberFact(name.length);
         setNameLengthFact(nameFact);
 
-        const letterArray = name.split("");
+        const letterArray = name.split("").filter(letter => isLetter(letter));
+
         const letters = await Promise.all(letterArray.map(async (letter, i) => {
           const alphaCode = alphabetCode(letter);
           const letterFact = await fetchNumberFact(alphaCode);
@@ -37,7 +38,6 @@ const App = () => {
   }, [name]);
 
   useEffect(() => {
-    console.log('component order changed', componentOrder);
     if (componentOrder > 0 && componentOrder < totalComponents) {
       setTimeout(() => {
         setComponentOrder(componentOrder + 1);
@@ -57,7 +57,11 @@ const App = () => {
 
   const alphabetCode = (letter) => {
     return letter.toLowerCase().charCodeAt() - 96;
-  }
+  };
+
+  const isLetter = (letter) => {
+    return letter.length === 1 && letter.match(/[a-z]/i);
+  };
 
   return (
     <div className='app'>
