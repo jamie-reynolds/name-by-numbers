@@ -1,6 +1,5 @@
-// NameEntry.js
-
 import React, { useState } from 'react';
+import './NameEntry.css';
 
 const NameEntry = ({ onNameChange }) => {
   const [inputValue, setInputValue] = useState('');
@@ -22,7 +21,7 @@ const NameEntry = ({ onNameChange }) => {
   }
 
   return (
-    <div>
+    <div className='nameEntry'>
       <input type="text" value={inputValue} onChange={handleInputChange} onKeyDown={handleEnterKey} />
       <button onClick={handleEnterClick}>Enter</button>
     </div>
