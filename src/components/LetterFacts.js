@@ -6,7 +6,7 @@ const LetterFacts = ({ letterFacts }) => {
     const [returnVal, setReturnVal] = useState(null);
     useEffect(() => {
         if (letterFacts.length > 0) {
-            const jsxElements = letterFacts.map((letterObj, i) => {
+            const letterFactElements = letterFacts.map((letterObj, i) => {
                 return (
                     <LetterFact 
                         key={i}
@@ -16,7 +16,11 @@ const LetterFacts = ({ letterFacts }) => {
                     />
                 );
             });
-            setReturnVal(jsxElements);
+            letterFactElements.forEach((element, i) => {
+                setTimeout(() => {
+                    setReturnVal(letterFactElements.slice(0,i+1))
+                }, i * 2000);
+            });
         } else {
             setReturnVal(null);
         }
