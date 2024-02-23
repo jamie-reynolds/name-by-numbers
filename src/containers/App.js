@@ -19,7 +19,7 @@ const App = () => {
         const nameFact = await fetchNumberFact(name.length);
         setNameLengthFact(nameFact);
 
-        const letterArray = name.split("").filter(letter => isLetter(letter));
+        const letterArray = [...name].filter(letter => isLetter(letter));
 
         const letters = await Promise.all(letterArray.map(async (letter, i) => {
           const alphaCode = alphabetCode(letter);
@@ -66,7 +66,7 @@ const App = () => {
   return (
     <div className='app'>
       <h1>Enter your name and we'll tell you something numberish about it!</h1>
-      <NameEntry onNameChange={handleNameChange} />
+      <NameEntry onNameChange={handleNameChange} checkLetter={isLetter} />
       {componentOrder >= 1 && <Greeting name={name} />}
       {componentOrder >= 2 && <NameLength nameLength={name.length} />}
       {componentOrder >= 3 && <NameFact nameLengthFact={nameLengthFact} />}
