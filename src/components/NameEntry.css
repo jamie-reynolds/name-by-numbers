@@ -1,0 +1,31 @@
+.nameEntry {
+    border-bottom: 2px solid black;
+}
+
+.nameEntry > * {
+    font-family: inherit;
+    font-size:2em;
+    font-weight: inherit;
+    background-color: inherit;
+    margin: 10px;
+}
+
+.nameEntry > input {
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+.nameEntry > input:focus {
+    outline: none;
+}
+
+.nameEntry > button {
+    border: none;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+.nameEntry > button:hover {
+    cursor: pointer;
+}

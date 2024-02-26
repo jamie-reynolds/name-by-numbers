@@ -1,0 +1,22 @@
+body {
+    background-color: #ffffee;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.app {
+    text-align: center;
+    font-family: "Sacramento", cursive;
+    font-weight: 400;
+    font-size: larger;
+}
+
+.fadein, .fadein > h1 {
+    animation: fadein 5s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
