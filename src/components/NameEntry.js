@@ -10,21 +10,13 @@ const NameEntry = ({ onNameChange, checkLetter }) => {
   };
 
   const handleEnterClick = () => {
-    if (!checkName(inputValue)) {
-      alert(errMessage);
-    } else {
-      onNameChange(inputValue);
-    }
+    handleCheckName(inputValue);
     setInputValue('');
   };
 
   const handleEnterKey = (event) => {
     if (event.key === 'Enter') {
-      if (!checkName(inputValue)) {
-        alert(errMessage);
-      } else {
-        onNameChange(inputValue);
-      }
+      handleCheckName(inputValue);
       setInputValue('');
     }
   };
@@ -36,6 +28,16 @@ const NameEntry = ({ onNameChange, checkLetter }) => {
       }
     }
     return true;
+  }
+
+  const handleCheckName = (name) => {
+    if (!checkName(name)) {
+      alert(errMessage);
+      onNameChange('');
+    } else {
+      onNameChange(name);
+    }
+    return null;
   }
 
   return (
